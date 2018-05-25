@@ -1,0 +1,94 @@
+$orange: #ffa500;
+$yellow: #ff0;
+$green: #0f0;
+$cyan: #0ff;
+$blue: #00f;
+$violet: #8a2be2;
+$magenta: #f0f;
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, -1px, 0) rotate(-10deg);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 2px, 0) rotate(10deg);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, -4px, 0) rotate(-10deg);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 4px, 0) rotate(10deg);
+    }
+}
+
+@keyframes flash {
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+}
+
+.wizard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to right, $orange , $yellow, $green, $cyan, $blue, $violet);
+    z-index: 999999999999999;
+}
+
+.wizard__title {
+    font-size: 80pt;
+    text-align: center;
+    color: $magenta;
+    position: absolute;
+    top: 0;
+    padding: 50px;
+    width: 100%;
+    font-weight: bold;
+    animation: flash .5s linear infinite;
+    background: $blue;
+}
+
+.wizard__flag-bg {
+    background-image: url('/images/common/canada.gif');
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.wizard__wizard-img {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+.wizard__hand {
+    position: absolute;
+    top: 60%;
+    animation: shake .82s cubic-bezier(.36, .07, .19, .97) alternate infinite;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.wizard__hand--left { left: 20%; }
+.wizard__hand--right { right: 20%; }
